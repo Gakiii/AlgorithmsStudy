@@ -7,6 +7,7 @@ public class Sort {
      */
     public static void main(String[] args) {
         selectSort();
+        bubbleSort();
     }
 
     public static void selectSort(){
@@ -17,6 +18,20 @@ public class Sort {
                     int tmp = a[j];
                     a[j] = a[i];
                     a[i] = tmp;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(a));
+    }
+
+    public static void bubbleSort(){
+        int a[] = new int[]{1,3,5,3,2,1,5,7,8,99,3,4,5,};
+        for(int i=0;i<a.length;i++){
+            for(int j=0;j<a.length - i -1;j++){
+                if(a[j]<a[j+1]){
+                    int tmp = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = tmp;
                 }
             }
         }
