@@ -8,10 +8,11 @@ public class Sort {
     public static void main(String[] args) {
         selectSort();
         bubbleSort();
+        bucketSort();
     }
 
     public static void selectSort(){
-        int a[] = new int[]{1,3,5,3,2,1,5,7,8,99,3,4,5,};
+        int [] a= new int[]{1,3,5,3,2,1,5,7,8,99,3,4,5,};
         for(int i=0;i<a.length;i++){
             for(int j=i+1;j<a.length;j++){
                 if(a[i]<a[j]){
@@ -25,7 +26,7 @@ public class Sort {
     }
 
     public static void bubbleSort(){
-        int a[] = new int[]{1,3,5,3,2,1,5,7,8,99,3,4,5,};
+        int [] a = new int[]{1,3,5,3,2,1,5,7,8,99,3,4,5,};
         for(int i=0;i<a.length;i++){
             for(int j=0;j<a.length - i -1;j++){
                 if(a[j]<a[j+1]){
@@ -36,6 +37,33 @@ public class Sort {
             }
         }
         System.out.println(Arrays.toString(a));
+    }
+
+
+    /*
+    桶排序，高效的以空间换时间的算法，但是对于空间的浪费过于严重
+    辅助数组的长度等于一个数组中最大的数字+1
+     */
+    public static void bucketSort(){
+        int[] a = new int[]{1,3,5,3,2,1,5,7,8,99,3,4,5,};
+        int max = a[0];
+        for(int i=0;i<a.length;i++){
+            if(max<a[i])
+                max = a[i];
+        }
+        int [] b= new int[max+1];
+        for(int i=0;i<a.length;i++){
+            b[a[i]]++;
+        }
+        for(int i=0;i<b.length;i++){
+            if(b[i]!=0){
+                for(int j=0;j<b[i];j++){
+                    System.out.println(i);
+                }
+            }
+        }
+
+
     }
 
 }
